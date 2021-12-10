@@ -1,6 +1,7 @@
 export const HOME_ROUTE = '/home';
 export const ABOUT_ROUTE = '/about';
 export const GUARANTIES_ROUTE = '/guaranties';
+export const LOGIN_ROUTE = '/login';
 
 export const TRACK_SEARCH_ROUTE = '/track/search';
 export const TRACK_RESULT_ROUTE = '/track/result';

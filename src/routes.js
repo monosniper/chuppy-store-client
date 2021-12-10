@@ -1,7 +1,7 @@
 import {
     ABOUT_ROUTE,
     ADMIN_ROUTE, CHANGE_ABOUT_ROUTE, CHANGE_GUARANTIES_ROUTE, GUARANTIES_ROUTE,
-    HOME_ROUTE, ORDER_ROUTE, TRACK_RESULT_ROUTE, TRACK_SEARCH_ROUTE, TRANSACTION_ROUTE,
+    HOME_ROUTE, LOGIN_ROUTE, ORDER_ROUTE, TRACK_RESULT_ROUTE, TRACK_SEARCH_ROUTE, TRANSACTION_ROUTE,
 } from "./utils/routes";
 import Home from "./components/pages/Home";
 import Admin from "./components/pages/Admin";
@@ -13,6 +13,7 @@ import Order from "./components/pages/Order";
 import Track from "./components/pages/Track";
 import TrackSearch from "./components/pages/TrackSearch";
 import Guaranties from "./components/pages/Guaranties";
+import Login from "./components/pages/Login";
 
 export const publicRoutes = [
     {
@@ -42,6 +43,10 @@ export const publicRoutes = [
     {
         path: TRANSACTION_ROUTE,
         element: <Transaction/>,
+    },
+    {
+        path: LOGIN_ROUTE,
+        element: <Login/>,
     },
 ];
 

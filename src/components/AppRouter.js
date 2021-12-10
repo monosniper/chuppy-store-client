@@ -1,7 +1,7 @@
 import React, {useContext, useEffect} from 'react';
 import {Navigate, Route, Routes} from "react-router-dom";
 import {privateRoutes, publicRoutes} from "../routes";
-import {HOME_ROUTE} from "../utils/routes";
+import {HOME_ROUTE, LOGIN_ROUTE} from "../utils/routes";
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
 
@@ -31,7 +31,7 @@ const AppRouter = () => {
         (
             <Routes>
                 {iterateRoutes(privateRoutes)}
-                <Route path="*" element={<Navigate replace to={HOME_ROUTE}/>}/>
+                <Route path="*" element={<Navigate replace to={LOGIN_ROUTE}/>}/>
             </Routes>
         )
         :
