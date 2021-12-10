@@ -8,6 +8,7 @@ import {ABOUT_ROUTE, GUARANTIES_ROUTE, ORDER_ROUTE, TRACK_SEARCH_ROUTE} from "..
 import Footer from "../layout/Footer";
 import WhatsApp from '../../assets/images/wasap.png';
 import Telegram from '../../assets/images/teledram.png';
+import {saveAs} from 'file-saver';
 
 const Home = () => {
     const saveFile = () => {
