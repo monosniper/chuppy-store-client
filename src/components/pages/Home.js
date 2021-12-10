@@ -8,16 +8,8 @@ import {ABOUT_ROUTE, GUARANTIES_ROUTE, ORDER_ROUTE, TRACK_SEARCH_ROUTE} from "..
 import Footer from "../layout/Footer";
 import WhatsApp from '../../assets/images/wasap.png';
 import Telegram from '../../assets/images/teledram.png';
-import {saveAs} from 'file-saver';
 
 const Home = () => {
-    const saveFile = () => {
-        saveAs(
-            process.env.REACT_APP_APK_URL,
-            "chuppystore.apk"
-        );
-    };
-
     return (
         <Container>
             <Helmet>
@@ -44,7 +36,8 @@ const Home = () => {
 
             <div style={{textTransform: 'uppercase', textAlign: 'center', paddingBottom: 30, fontSize: 14}}>↓ Скачать приложение ↓</div>
             <div style={{display: 'flex', justifyContent: 'space-evenly', marginBottom: 40}}>
-                <button onClick={saveFile} className="social-btn apk">Для Андроид</button>
+                <a target="_blank" download="" href={process.env.REACT_APP_APK_URL}
+                   className="social-btn apk">Для Андроид</a>
             </div>
 
             <Link to={TRACK_SEARCH_ROUTE}><Button className="fill home-btn">ПОЛУЧИТЬ ТРЕК</Button></Link>
