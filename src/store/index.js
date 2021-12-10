@@ -107,7 +107,7 @@ export default class Store {
             this.setAuth(true);
             this.setUser(response.data.user);
         } catch (e) {
-            console.log(e);
+            this.setAuth(false);
         } finally {
             this.setLoading(false);
         }

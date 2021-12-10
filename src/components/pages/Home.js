@@ -10,6 +10,13 @@ import WhatsApp from '../../assets/images/wasap.png';
 import Telegram from '../../assets/images/teledram.png';
 
 const Home = () => {
+    const saveFile = () => {
+        saveAs(
+            process.env.REACT_APP_APK_URL,
+            "chuppystore.apk"
+        );
+    };
+
     return (
         <Container>
             <Helmet>
@@ -32,6 +39,11 @@ const Home = () => {
                 <Link style={{textDecoration: 'none'}} to={process.env.REACT_APP_TELEGRAM_URL}>
                     <button className="social-btn telegram"><img src={Telegram} alt="Telegram"/> Telegram</button>
                 </Link>
+            </div>
+
+            <div style={{textTransform: 'uppercase', textAlign: 'center', paddingBottom: 30, fontSize: 14}}>↓ Скачать приложение ↓</div>
+            <div style={{display: 'flex', justifyContent: 'space-evenly', marginBottom: 40}}>
+                <button onClick={saveFile} className="social-btn apk">Для Андроид</button>
             </div>
 
             <Link to={TRACK_SEARCH_ROUTE}><Button className="fill home-btn">ПОЛУЧИТЬ ТРЕК</Button></Link>

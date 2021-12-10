@@ -3,6 +3,7 @@ import Logo from "../Logo";
 import Button from "../Button";
 import {Context} from "../../index";
 import Container from "../layout/Container";
+import Noty from "noty";
 
 const Login = () => {
 
@@ -11,7 +12,17 @@ const Login = () => {
     const [password, setPassword] = useState('');
 
     const handleSubmit = () => {
-        store.login(username, password);
+        store.login(username, password, () => {
+            new Noty({
+                type: 'success',
+                text: 'Вход выполнен успешно'
+            }).show();
+        }, (e) => {
+            new Noty({
+                type: 'error',
+                text: e.response.data.message
+            }).show();
+        });
     }
 
     return (

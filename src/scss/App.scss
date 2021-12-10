@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@600&display=swap');
 
-$orange: #F88577;
+$orange: #88eed2;
 
 * {
   margin: 0;
@@ -119,6 +119,11 @@ body {
   &.whatsapp {
     color: rgba(23, 167, 0, 0.42);
     border-color: rgba(23, 167, 0, 0.42);
+  }
+
+  &.apk {
+    color: $orange;
+    border-color: $orange;
   }
 
   &.telegram {

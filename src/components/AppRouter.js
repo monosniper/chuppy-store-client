@@ -26,19 +26,19 @@ const AppRouter = () => {
     }, []);
 
     if(store.isLoading) return <h6>Loading...</h6>
-
+    console.log(store.isAuth)
     return store.isAuth ?
         (
             <Routes>
                 {iterateRoutes(privateRoutes)}
-                <Route path="*" element={<Navigate replace to={LOGIN_ROUTE}/>}/>
+                <Route path="*" element={<Navigate replace to={HOME_ROUTE}/>}/>
             </Routes>
         )
         :
         (
             <Routes>
                 {iterateRoutes(publicRoutes)}
-                <Route path="*" element={<Navigate replace to={HOME_ROUTE}/>}/>
+                <Route path="*" element={<Navigate replace to={LOGIN_ROUTE}/>}/>
             </Routes>
         );
 };
