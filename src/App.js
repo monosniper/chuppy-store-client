@@ -1,21 +1,25 @@
 import {BrowserRouter} from "react-router-dom";
 import AppRouter from "./components/AppRouter";
 import './scss/App.scss';
-import Container from "./components/layout/Container";
 import Footer from "./components/layout/Footer";
 import "../node_modules/noty/lib/noty.css";
 import "../node_modules/noty/lib/themes/mint.css";
-import {Helmet} from "react-helmet";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+
+const initialOptions = {
+    "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID,
+    currency: "RUB",
+    intent: "capture",
+};
 
 function App() {
     return (
-        <BrowserRouter>
-            <Helmet>
-                <meta name="enot" content="9471639158398EVHg7Hu6xRooFoxpf1sfxf_153IG8Adf" />
-            </Helmet>
-            <AppRouter/>
-            <Footer />
-        </BrowserRouter>
+        <PayPalScriptProvider options={initialOptions}>
+            <BrowserRouter>
+                <AppRouter/>
+                <Footer />
+            </BrowserRouter>
+        </PayPalScriptProvider>
     );
 }
 

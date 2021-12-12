@@ -1,4 +1,4 @@
-export const HOME_ROUTE = '/home';
+export const HOME_ROUTE = '/';
 export const ABOUT_ROUTE = '/about';
 export const GUARANTIES_ROUTE = '/guaranties';
 export const LOGIN_ROUTE = '/login';
@@ -13,3 +13,4 @@ export const TRANSACTION_ROUTE = '/transaction/:orderId';
 export const ADMIN_ROUTE = '/admin';
 export const CHANGE_ABOUT_ROUTE = '/admin/about';
 export const CHANGE_GUARANTIES_ROUTE = '/admin/guaranties';
+export const PRODUCTS_ROUTE = '/admin/products';

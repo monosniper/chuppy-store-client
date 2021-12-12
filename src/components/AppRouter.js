@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import {Navigate, Route, Routes} from "react-router-dom";
-import {privateRoutes, publicRoutes} from "../routes";
+import {guestRoutes, privateRoutes, publicRoutes} from "../routes";
 import {HOME_ROUTE, LOGIN_ROUTE} from "../utils/routes";
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
@@ -25,8 +25,8 @@ const AppRouter = () => {
         }
     }, []);
 
-    if(store.isLoading) return <h6>Loading...</h6>
-    console.log(store.isAuth)
+    if(store.isLoading) return <h6>Загрузка...</h6>
+
     return store.isAuth ?
         (
             <Routes>
@@ -37,7 +37,7 @@ const AppRouter = () => {
         :
         (
             <Routes>
-                {iterateRoutes(publicRoutes)}
+                {iterateRoutes([...publicRoutes, ...guestRoutes])}
                 <Route path="*" element={<Navigate replace to={LOGIN_ROUTE}/>}/>
             </Routes>
         );

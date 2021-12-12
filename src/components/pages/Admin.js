@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link, Outlet, useMatch, useResolvedPath} from "react-router-dom";
 import {
-    CHANGE_ABOUT_ROUTE, CHANGE_GUARANTIES_ROUTE,
+    CHANGE_ABOUT_ROUTE, CHANGE_GUARANTIES_ROUTE, PRODUCTS_ROUTE,
 } from "../../utils/routes";
 import Container from "../layout/Container";
 import Button from "../Button";
@@ -15,6 +15,9 @@ const Admin = () => {
 
     let resolvedGuarantiesRoute = useResolvedPath(CHANGE_GUARANTIES_ROUTE);
     let matchGuarantiesRoute = useMatch({ path: resolvedGuarantiesRoute.pathname, end: true});
+
+    let resolvedProductsRoute = useResolvedPath(PRODUCTS_ROUTE);
+    let matchProductsRoute = useMatch({ path: resolvedProductsRoute.pathname, end: true});
 
     return (
         <Container className="lg">
@@ -33,6 +36,9 @@ const Admin = () => {
                 </Link>
                 <Link className={matchGuarantiesRoute ? "menu-item active" : "menu-item"} to={CHANGE_GUARANTIES_ROUTE}>
                     <Button>Гарантии</Button>
+                </Link>
+                <Link className={matchProductsRoute ? "menu-item active" : "menu-item"} to={PRODUCTS_ROUTE}>
+                    <Button>Продукты</Button>
                 </Link>
             </div>
 

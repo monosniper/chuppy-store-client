@@ -6,6 +6,8 @@ import UserService from "../services/UserService";
 import UploadService from "../services/UploadService";
 import ContentService from "../services/ContentService";
 import OrderService from "../services/OrderService";
+import TransactionService from "../services/TransactionService";
+import ProductService from "../services/ProductService";
 
 export default class Store {
 
@@ -38,6 +40,15 @@ export default class Store {
         }
     }
 
+    async setTransactionCompleted(orderId) {
+        try {
+            const response = await TransactionService.complete(orderId);
+            return response;
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     async makeOrder(data) {
         try {
             data.articuls = await data.articuls.map(articul => articul.value);
@@ -52,6 +63,51 @@ export default class Store {
     async setContent(name, content) {
         try {
             await ContentService.setContent(name, content);
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async getProducts() {
+        try {
+            const response = await ProductService.getAllProducts();
+            return response;
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async createProduct(data) {
+        try {
+            const response = await ProductService.createProduct(data);
+            return response;
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async deleteProduct(id) {
+        try {
+            const response = await ProductService.deleteProduct(id);
+            return response;
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async generateTransaction(id) {
+        try {
+            const response = await TransactionService.createTransaction(id);
+            return response;
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async editProduct(id, price) {
+        try {
+            const response = await ProductService.editProduct(id, price);
+            return response;
         } catch (e) {
             console.log(e)
         }

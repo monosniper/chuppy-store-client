@@ -26,12 +26,12 @@ const Home = () => {
 
             <div style={{textTransform: 'uppercase', textAlign: 'center', paddingBottom: 30, fontSize: 14}}>↓ ОФОРМИТЬ ЗАКАЗ ↓</div>
             <div style={{display: 'flex', justifyContent: 'space-evenly', marginBottom: 40}}>
-                <Link style={{textDecoration: 'none'}} to={process.env.REACT_APP_WHATSAPP_URL}>
+                <a style={{textDecoration: 'none'}} href={process.env.REACT_APP_WHATSAPP_URL}>
                     <button className="social-btn whatsapp"><img src={WhatsApp} alt="WhatsApp"/> WhatsApp</button>
-                </Link>
-                <Link style={{textDecoration: 'none'}} to={process.env.REACT_APP_TELEGRAM_URL}>
+                </a>
+                <a style={{textDecoration: 'none'}} href={process.env.REACT_APP_TELEGRAM_URL}>
                     <button className="social-btn telegram"><img src={Telegram} alt="Telegram"/> Telegram</button>
-                </Link>
+                </a>
             </div>
 
             <div style={{textTransform: 'uppercase', textAlign: 'center', paddingBottom: 30, fontSize: 14}}>↓ Скачать приложение ↓</div>
