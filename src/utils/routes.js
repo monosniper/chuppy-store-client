@@ -14,3 +14,5 @@ export const ADMIN_ROUTE = '/admin';
 export const CHANGE_ABOUT_ROUTE = '/admin/about';
 export const CHANGE_GUARANTIES_ROUTE = '/admin/guaranties';
 export const PRODUCTS_ROUTE = '/admin/products';
+export const POSTS_ROUTE = '/admin/posts';
+export const REVIEWS_ROUTE = '/admin/reviews';

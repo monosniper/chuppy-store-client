@@ -9,7 +9,7 @@ import {AiOutlinePlus} from "react-icons/all";
 import Noty from "noty";
 import {Context} from "../../index";
 
-const Order = () => {
+const OrderPage = () => {
 
     const {store} = useContext(Context);
     const navigate = useNavigate();
@@ -117,4 +117,4 @@ const Order = () => {
     );
 };
 
-export default Order;
+export default OrderPage;

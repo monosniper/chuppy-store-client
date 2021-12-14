@@ -7,7 +7,7 @@ import {Helmet} from "react-helmet";
 import Logo from "../Logo";
 import {AiFillCheckCircle} from "react-icons/all";
 
-const SuccessPay = () => {
+const SuccessPayPage = () => {
     return (
         <>
             <Container style={{textAlign: 'center'}}>
@@ -29,4 +29,4 @@ const SuccessPay = () => {
     );
 };
 
-export default SuccessPay;
+export default SuccessPayPage;

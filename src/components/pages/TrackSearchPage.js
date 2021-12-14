@@ -5,7 +5,7 @@ import Button from "../Button";
 import Container from "../layout/Container";
 import Logo from "../Logo";
 
-const TrackSearch = () => {
+const TrackSearchPage = () => {
 
     const navigate = useNavigate();
     const [fio, setFio] = useState('');
@@ -32,4 +32,4 @@ const TrackSearch = () => {
     );
 };
 
-export default TrackSearch;
+export default TrackSearchPage;

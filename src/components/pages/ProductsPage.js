@@ -7,7 +7,7 @@ import swal from 'sweetalert';
 import {observer} from "mobx-react-lite";
 import {AiFillDelete, AiFillEdit, MdModeEditOutline} from "react-icons/all";
 
-const Products = () => {
+const ProductsPage = () => {
     const {store} = useContext(Context);
     const [products, setProducts] = useState([]);
 
@@ -85,4 +85,4 @@ const Products = () => {
     );
 };
 
-export default observer(Products);
+export default observer(ProductsPage);

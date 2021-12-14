@@ -5,11 +5,12 @@ import Logo from "../Logo";
 import Button from "../Button";
 import {Link} from "react-router-dom";
 import {ABOUT_ROUTE, GUARANTIES_ROUTE, ORDER_ROUTE, TRACK_SEARCH_ROUTE} from "../../utils/routes";
-import Footer from "../layout/Footer";
 import WhatsApp from '../../assets/images/wasap.png';
 import Telegram from '../../assets/images/teledram.png';
+import Posts from "../Posts";
+import Reviews from "../Reviews";
 
-const Home = () => {
+const HomePage = () => {
     return (
         <Container>
             <Helmet>
@@ -41,8 +42,11 @@ const Home = () => {
             </div>
 
             <Link to={TRACK_SEARCH_ROUTE}><Button className="fill home-btn">ПОЛУЧИТЬ ТРЕК</Button></Link>
+
+            <Posts />
+            <Reviews />
         </Container>
     );
 };
 
-export default Home;
+export default HomePage;

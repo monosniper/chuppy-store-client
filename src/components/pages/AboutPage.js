@@ -6,7 +6,7 @@ import Button from "../Button";
 import {HOME_ROUTE} from "../../utils/routes";
 import {Link} from "react-router-dom";
 
-const About = () => {
+const AboutPage = () => {
 
     const {store} = useContext(Context);
     const [content, setContent] = useState('');
@@ -32,4 +32,4 @@ const About = () => {
     );
 };
 
-export default About;
+export default AboutPage;

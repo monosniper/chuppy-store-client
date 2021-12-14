@@ -5,7 +5,7 @@ import {HOME_ROUTE, TRACK_RESULT_ROUTE, TRACK_SEARCH_ROUTE} from "../../utils/ro
 import Button from "../Button";
 import Logo from "../Logo";
 
-const Track = () => {
+const TrackPage = () => {
 
     const navigate = useNavigate();
 
@@ -35,4 +35,4 @@ const Track = () => {
     );
 };
 
-export default Track;
+export default TrackPage;

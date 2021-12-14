@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 import {HOME_ROUTE} from "../../utils/routes";
 import Button from "../Button";
 
-const Guaranties = () => {
+const GuarantiesPage = () => {
     const {store} = useContext(Context);
     const [content, setContent] = useState('');
     const [documentVisible, setDocumentVisible] = useState(false);
@@ -40,4 +40,4 @@ const Guaranties = () => {
     );
 };
 
-export default Guaranties;
+export default GuarantiesPage;

@@ -10,10 +10,10 @@ import Telegram from '../../assets/images/teledram.png';
 import {observer} from "mobx-react-lite";
 import {Context} from "../../index";
 import {PayPalButtons} from "@paypal/react-paypal-js";
-import SuccessPay from "./SuccessPay";
+import SuccessPayPage from "./SuccessPayPage";
 import Countdown from "react-countdown";
 
-const Transaction = () => {
+const TransactionPage = () => {
 
     const {store} = useContext(Context);
     const params = useParams();
@@ -137,7 +137,7 @@ const Transaction = () => {
                 </div>
             </Container>
         </>
-    ) : <SuccessPay />;
+    ) : <SuccessPayPage />;
 };
 
-export default observer(Transaction);
+export default observer(TransactionPage);

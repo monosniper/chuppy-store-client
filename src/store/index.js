@@ -8,6 +8,8 @@ import ContentService from "../services/ContentService";
 import OrderService from "../services/OrderService";
 import TransactionService from "../services/TransactionService";
 import ProductService from "../services/ProductService";
+import PostService from "../services/PostService";
+import ReviewService from "../services/ReviewService";
 
 export default class Store {
 
@@ -29,6 +31,78 @@ export default class Store {
 
     setUser(user) {
         this.user = user;
+    }
+
+    async getPosts() {
+        try {
+            const response = await PostService.getAll();
+            return response.data;
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async createPost(data) {
+        try {
+            const response = await PostService.create(data);
+            return response.data;
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async editPost(id, data) {
+        try {
+            const response = await PostService.edit(id, data);
+            return response.data;
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async deletePost(id) {
+        try {
+            const response = await PostService.delete(id);
+            return response.data;
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async getReviews() {
+        try {
+            const response = await ReviewService.getAll();
+            return response.data;
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async createReview(data) {
+        try {
+            const response = await ReviewService.create(data);
+            return response.data;
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async editReview(id, data) {
+        try {
+            const response = await ReviewService.edit(id, data);
+            return response.data;
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async deleteReview(id) {
+        try {
+            const response = await ReviewService.delete(id);
+            return response.data;
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     async getContent(name) {
@@ -210,6 +284,15 @@ export default class Store {
             data.forEach(async (item) => {
                 await UploadService.uploadFile(item.file, item.dir, del);
             })
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async getPost(id) {
+        try {
+            const response = await PostService.getPost(id);
+            return response.data;
         } catch (e) {
             console.log(e)
         }

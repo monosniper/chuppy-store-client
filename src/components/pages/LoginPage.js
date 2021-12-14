@@ -5,7 +5,7 @@ import {Context} from "../../index";
 import Container from "../layout/Container";
 import Noty from "noty";
 
-const Login = () => {
+const LoginPage = () => {
 
     const {store} = useContext(Context);
     const [username, setUsername] = useState('');
@@ -36,4 +36,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default LoginPage;

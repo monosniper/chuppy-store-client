@@ -1,56 +1,68 @@
 import {
     ABOUT_ROUTE,
-    ADMIN_ROUTE, CHANGE_ABOUT_ROUTE, CHANGE_GUARANTIES_ROUTE, GUARANTIES_ROUTE,
-    HOME_ROUTE, LOGIN_ROUTE, ORDER_ROUTE, PRODUCTS_ROUTE, TRACK_RESULT_ROUTE, TRACK_SEARCH_ROUTE, TRANSACTION_ROUTE,
+    ADMIN_ROUTE,
+    CHANGE_ABOUT_ROUTE,
+    CHANGE_GUARANTIES_ROUTE,
+    GUARANTIES_ROUTE,
+    HOME_ROUTE,
+    LOGIN_ROUTE,
+    ORDER_ROUTE,
+    POSTS_ROUTE,
+    PRODUCTS_ROUTE, REVIEWS_ROUTE,
+    TRACK_RESULT_ROUTE,
+    TRACK_SEARCH_ROUTE,
+    TRANSACTION_ROUTE,
 } from "./utils/routes";
-import Home from "./components/pages/Home";
-import Admin from "./components/pages/Admin";
-import About from "./components/pages/About";
-import Transaction from "./components/pages/Transaction";
-import ChangeGuaranties from "./components/pages/ChangeGuaranties";
-import ChangeAbout from "./components/pages/ChangeAbout";
-import Order from "./components/pages/Order";
-import Track from "./components/pages/Track";
-import TrackSearch from "./components/pages/TrackSearch";
-import Guaranties from "./components/pages/Guaranties";
-import Login from "./components/pages/Login";
-import Products from "./components/pages/Products";
+import HomePage from "./components/pages/HomePage";
+import AdminPage from "./components/pages/AdminPage";
+import AboutPage from "./components/pages/AboutPage";
+import TransactionPage from "./components/pages/TransactionPage";
+import ChangeGuarantiesPage from "./components/pages/ChangeGuarantiesPage";
+import ChangeAboutPage from "./components/pages/ChangeAboutPage";
+import OrderPage from "./components/pages/OrderPage";
+import TrackPage from "./components/pages/TrackPage";
+import TrackSearchPage from "./components/pages/TrackSearchPage";
+import GuarantiesPage from "./components/pages/GuarantiesPage";
+import LoginPage from "./components/pages/LoginPage";
+import ProductsPage from "./components/pages/ProductsPage";
+import PostsPage from "./components/pages/PostsPage";
+import ReviewsPage from "./components/pages/ReviewsPage";
 
 export const guestRoutes = [
     {
         path: LOGIN_ROUTE,
-        element: <Login/>,
+        element: <LoginPage/>,
     },
 ]
 
 export const publicRoutes = [
     {
         path: HOME_ROUTE,
-        element: <Home/>,
+        element: <HomePage/>,
     },
     {
         path: ABOUT_ROUTE,
-        element: <About/>,
+        element: <AboutPage/>,
     },
     {
         path: GUARANTIES_ROUTE,
-        element: <Guaranties/>,
+        element: <GuarantiesPage/>,
     },
     {
         path: TRACK_SEARCH_ROUTE,
-        element: <TrackSearch/>,
+        element: <TrackSearchPage/>,
     },
     {
         path: TRACK_RESULT_ROUTE,
-        element: <Track/>,
+        element: <TrackPage/>,
     },
     {
         path: ORDER_ROUTE,
-        element: <Order/>,
+        element: <OrderPage/>,
     },
     {
         path: TRANSACTION_ROUTE,
-        element: <Transaction/>,
+        element: <TransactionPage/>,
     },
 ];
 
@@ -59,19 +71,27 @@ export const privateRoutes = [
 
     {
         path: ADMIN_ROUTE,
-        element: <Admin/>,
+        element: <AdminPage/>,
         children: [
             {
                 path: CHANGE_ABOUT_ROUTE,
-                element: <ChangeAbout/>,
+                element: <ChangeAboutPage/>,
             },
             {
                 path: CHANGE_GUARANTIES_ROUTE,
-                element: <ChangeGuaranties/>,
+                element: <ChangeGuarantiesPage/>,
             },
             {
                 path: PRODUCTS_ROUTE,
-                element: <Products/>,
+                element: <ProductsPage/>,
+            },
+            {
+                path: POSTS_ROUTE,
+                element: <PostsPage/>,
+            },
+            {
+                path: REVIEWS_ROUTE,
+                element: <ReviewsPage/>,
             },
         ]
     },
