@@ -31,14 +31,14 @@ const Reviews = () => {
         <>
             <h2>Отзывы:</h2>
             <div className="reviews" style={{padding: '10px 0'}}>
-                <Carousel
+                {reviews.length && <Carousel
                     itemsToShow={1}
                     children={reviews}
                     pagination={false}
                     renderArrow={({type, onClick}) => (
                         <div className="carousel-arrow" onClick={onClick}>{type === 'PREV' ? <IoMdArrowDropleft/> : <IoMdArrowDropright/>}</div>
                     )}
-                />
+                />}
             </div>
         </>
     );

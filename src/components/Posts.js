@@ -25,7 +25,7 @@ const Posts = () => {
         <>
             <h2>Инстаграмм посты</h2>
             <div className="posts" style={{padding: '10px 0'}}>
-                <Lightbox
+                {posts.length && <Lightbox
                     images={images}
                     renderImageFunc={(idx, image, toggleLightbox, width, height) => {
                         return (
@@ -33,7 +33,7 @@ const Posts = () => {
                                   onClick={toggleLightbox.bind(null, idx)}/>
                         )
                     }}
-                />
+                />}
             </div>
         </>
     );
