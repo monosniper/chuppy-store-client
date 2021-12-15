@@ -5,13 +5,16 @@ import ReactQuill from "react-quill";
 import Button from "../Button";
 import swal from 'sweetalert';
 import {observer} from "mobx-react-lite";
-import {AiFillDelete, AiFillEdit, MdModeEditOutline} from "react-icons/all";
+import {AiFillDelete, AiFillEdit, FiEdit, MdModeEditOutline} from "react-icons/all";
+import Swal from "sweetalert2";
+import Post from "../Post";
+import Product from "../Product";
 
 const ProductsPage = () => {
     const {store} = useContext(Context);
     const [products, setProducts] = useState([]);
 
-    const handleAddProuctClick = () => {
+    const handleAddProductClick = () => {
         swal({
             text: "Артикул товара:",
             content: 'input',
@@ -22,10 +25,72 @@ const ProductsPage = () => {
                     content: 'input',
                 }).then(price => {
                     if(price !== '') {
-                        store.createProduct({articul, price}).then((rs) => {
-                            swal('Отлично!', 'Продукт создан успешно.', 'success');
-                            setProducts([...products, rs.data]);
-                        });
+                        Swal.fire({
+                            text: "Выберите картинку:",
+                            input: 'file',
+                            inputAttributes: {
+                                'accept': 'image/*',
+                                'aria-label': 'Upload your profile picture'
+                            }
+                        }).then(image => {
+                            if(image.value) {
+                                Swal.fire({
+                                    text: "Выберите размеры:",
+                                    input: 'select',
+                                    inputOptions: {
+                                        xxxl: 'xxxl',
+                                        xxl: 'xxl',
+                                        xl: 'xl',
+                                        l: 'l',
+                                        m: 'm',
+                                        s: 's',
+                                    },
+                                    inputAttributes: {
+                                        'multiple': true,
+                                        'id': 'sizes',
+                                    },
+                                    preConfirm: () => {
+                                        return Array.from(document.querySelectorAll('#sizes option:checked')).map(el => el.value);
+                                    },
+                                    inputPlaceholder: 'Выберите размеры',
+                                }).then(sizes => {
+                                    console.log(sizes.value)
+                                    if(sizes.value.length) {
+                                        Swal.fire({
+                                            text: "Выберите пол:",
+                                            input: 'select',
+                                            inputOptions: {
+                                                male: 'Мужской',
+                                                female: 'Женский',
+                                                unisex: 'Унисекс',
+                                            },
+                                            inputAttributes: {
+                                                'id': 'sex',
+                                                'multiple': true,
+                                            },
+                                            preConfirm: () => {
+                                                return Array.from(document.querySelectorAll('#sex option:checked')).map(el => el.value);
+                                            },
+                                            inputPlaceholder: 'Выберите пол',
+                                        }).then(sex => {
+                                            if(sex.value.length) {
+                                                store.createProduct({
+                                                    articul,
+                                                    price,
+                                                    image: image.value,
+                                                    sizes: sizes.value,
+                                                    sex: sex.value,
+                                                }).then((rs) => {
+                                                    swal('Отлично!', 'Продукт создан успешно.', 'success');
+                                                    setProducts([...products, rs.data]);
+                                                });
+                                            }
+                                        })
+                                    }
+                                })
+                            }
+                        })
+
                     }
                 })
             }
@@ -37,14 +102,16 @@ const ProductsPage = () => {
             text: "Новая цена:",
             content: 'input',
         }).then(price => {
-            store.editProduct(id, price).then(() => {
-                swal('Готово', 'Продукт был обновлен.', 'success')
-                const newProducts = [...products].map(product => {
-                    if(product._id === id) product.price = price;
-                    return product;
+            if(price !== '') {
+                store.editProduct(id, price).then(() => {
+                    swal('Готово', 'Продукт был обновлен.', 'success')
+                    const newProducts = [...products].map(product => {
+                        if(product._id === id) product.price = price;
+                        return product;
+                    });
+                    setProducts(newProducts);
                 });
-                setProducts(newProducts);
-            });
+            }
         })
     }
 
@@ -62,24 +129,15 @@ const ProductsPage = () => {
 
     return (
         <div style={{padding: '20px 0'}}>
-            <Button onClick={handleAddProuctClick}>Добавить товар</Button>
+            <Button onClick={handleAddProductClick}>Добавить товар</Button>
             <div className="products">
-                {products.map(({_id, articul, price}) => {
-                    console.log(_id)
-                        return (
-                            <div className="product" key={_id}>
-                                <div className='product-left'>
-                                    <div className="product-articul">{articul}</div>
-                                    <div className="product-price">{price} ₽</div>
-                                </div>
-                                <div className='product-right'>
-                                    <button onClick={() => handleDeleteProduct(_id)} className="product-btn product-delete"><AiFillDelete /></button>
-                                    <button onClick={() => handleEditProduct(_id)} className="product-btn product-edit"><MdModeEditOutline /></button>
-                                </div>
-                            </div>
-                        )
-                }
-                    )}
+                {products.map((product) => (
+                    <Product handleEdit={handleEditProduct}
+                             handleDelete={handleDeleteProduct}
+                             key={product.id}
+                             product={product}
+                    />
+                ))}
             </div>
         </div>
     );

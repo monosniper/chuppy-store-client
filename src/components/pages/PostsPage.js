@@ -15,7 +15,7 @@ const PostsPage = () => {
     const [posts, setPosts] = useState([]);
     const images = posts.map(post => {
         return {
-            src: process.env.REACT_APP_API_URL + '/posts/' + post.image,
+            src: post.image,
             title: '#' + post.articul,
             description: post.price + '₽',
             id: post._id,
@@ -42,14 +42,14 @@ const PostsPage = () => {
                             }
                         }).then(rs => {
                             if(rs.value) {
-                                store.uploadFiles([{
-                                    file: rs.value, dir: 'posts'
-                                }], false).then(() => {
-                                    store.createPost({articul, price, image: rs.value.name}).then((post) => {
-                                        swal('Отлично!', 'Пост создан успешно.', 'success');
-                                        setPosts([...posts, post]);
-                                    });
-                                })
+                                store.createPost({
+                                    articul,
+                                    price,
+                                    image: rs.value
+                                }).then((post) => {
+                                    swal('Отлично!', 'Пост создан успешно.', 'success');
+                                    setPosts([...posts, post]);
+                                });
                             }
                         })
                     }

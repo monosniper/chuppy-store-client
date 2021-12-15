@@ -10,6 +10,8 @@ export const ORDER_ROUTE = '/order';
 export const _TRANSACTION_ROUTE = '/transaction/';
 export const TRANSACTION_ROUTE = '/transaction/:orderId';
 
+export const CLOTHES_ROUTE = '/clothes';
+
 export const ADMIN_ROUTE = '/admin';
 export const CHANGE_ABOUT_ROUTE = '/admin/about';
 export const CHANGE_GUARANTIES_ROUTE = '/admin/guaranties';

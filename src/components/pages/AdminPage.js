@@ -28,10 +28,10 @@ const AdminPage = () => {
             route: POSTS_ROUTE,
             title: 'Посты'
         },
-        // {
-        //     route: REVIEWS_ROUTE,
-        //     title: 'Отзывы'
-        // },
+        {
+            route: REVIEWS_ROUTE,
+            title: 'Отзывы'
+        },
     ]);
 
     return (

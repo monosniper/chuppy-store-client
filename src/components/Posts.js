@@ -10,7 +10,7 @@ const Posts = () => {
     const [posts, setPosts] = useState([]);
     const images = posts.map(post => {
         return {
-            src: process.env.REACT_APP_API_URL + '/posts/' + post.image,
+            src: post.image,
             title: '#' + post.articul,
             description: post.price + '₽',
             id: post._id,

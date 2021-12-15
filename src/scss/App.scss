@@ -44,6 +44,27 @@ body {
   cursor: pointer;
   height: 200px;
 
+  &-filter {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+  }
+
+  &-sizes, &-sex {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  &-sizes-item, &-sex-item {
+    color: white;
+    border-radius: 20px;
+    background: $orange;
+    padding: 5px 10px;
+  }
+
   &::after {
     position: absolute;
     content: '';
@@ -214,10 +235,64 @@ body {
   }
 }
 
-.products {
-  max-height: 600px;
-  overflow-y: scroll;
-  padding: 10px 0;
+.review {
+  margin-bottom: 1rem;
+  width: 300px;
+  padding: 0 10px;
+  position: relative;
+
+  .post-toolbar {
+    bottom: -20px;
+    right: 0;
+  }
+
+  .post-delete {
+    box-shadow: 0 0 5px #00000042;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  &-rating {
+    color: gold;
+  }
+
+  &-body {
+    font-size: 14px;
+  }
+}
+
+.carousel-arrow {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  color: #000000;
+}
+
+.filter {
+  margin-bottom: 3rem;
+  &-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 5px 0;
+  }
+
+  &-item {
+    background: #dddddd;
+    cursor: pointer;
+    color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+    &.active {
+      background: $orange;
+    }
+  }
 }
 
 .product {
@@ -553,7 +628,7 @@ html.lightbox-open {
 }
 
 
-.posts .lightbox-container {
+.products, .lightbox-container {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;

@@ -6,7 +6,16 @@ export default class PostService {
     }
 
     static async create(data) {
-        return $api.post('post', data);
+        const formData = new FormData();
+
+        Object.entries(data).forEach(([key, value]) => {
+            formData.append(key, value);
+            console.log(key, value);
+        })
+
+        return $api.post('post', formData, {headers: {
+            'Content-Type': 'multipart/form-data'
+        }});
     }
 
     static async delete(id) {

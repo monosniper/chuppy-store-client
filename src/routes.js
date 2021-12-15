@@ -2,7 +2,7 @@ import {
     ABOUT_ROUTE,
     ADMIN_ROUTE,
     CHANGE_ABOUT_ROUTE,
-    CHANGE_GUARANTIES_ROUTE,
+    CHANGE_GUARANTIES_ROUTE, CLOTHES_ROUTE,
     GUARANTIES_ROUTE,
     HOME_ROUTE,
     LOGIN_ROUTE,
@@ -27,6 +27,7 @@ import LoginPage from "./components/pages/LoginPage";
 import ProductsPage from "./components/pages/ProductsPage";
 import PostsPage from "./components/pages/PostsPage";
 import ReviewsPage from "./components/pages/ReviewsPage";
+import ClothesPage from "./components/pages/ClothesPage";
 
 export const guestRoutes = [
     {
@@ -63,6 +64,10 @@ export const publicRoutes = [
     {
         path: TRANSACTION_ROUTE,
         element: <TransactionPage/>,
+    },
+    {
+        path: CLOTHES_ROUTE,
+        element: <ClothesPage/>,
     },
 ];
 

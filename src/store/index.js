@@ -142,9 +142,9 @@ export default class Store {
         }
     }
 
-    async getProducts() {
+    async getProducts(filter=false) {
         try {
-            const response = await ProductService.getAllProducts();
+            const response = await ProductService.getAllProducts(filter);
             return response;
         } catch (e) {
             console.log(e)

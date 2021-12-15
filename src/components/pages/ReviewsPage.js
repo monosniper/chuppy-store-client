@@ -8,37 +8,46 @@ import {observer} from "mobx-react-lite";
 import {AiFillDelete, AiFillEdit, MdModeEditOutline} from "react-icons/all";
 import Swal from "sweetalert2";
 import Rating from "react-rating";
+import Review from "../Review";
 
 const ReviewsPage = () => {
     const {store} = useContext(Context);
     const [reviews, setReviews] = useState([]);
 
     const handleCreate = () => {
-        Swal.fire({
-            html:
-                `
-                    <Rating />    
-                ` +
-                `<input id="fio" class="swal2-input" placeholder="Имя: ">` +
-                `<label for="rating">Рейтинг</label>` +
-                `<input id="rating" type="range" min="0" max="5" step="1" class="swal2-input">` +
-                `<textarea id="content" class="swal2-input" placeholder="Контент: " />`,
-            focusConfirm: false,
-            preConfirm: () => {
-                return {
-                    fio: document.getElementById('fio').value,
-                    rating: document.getElementById('rating').value,
-                    content: document.getElementById('content').value,
-                }
-            }
-        }).then(rs => {
-            if(rs.isConfirmed) {
-                if(rs.value.fio !== '' && rs.value.content !== '') {
-                    store.createReview(rs.value).then(review => {
-                        swal('Отлично!', 'Отзыв создан успешно.', 'success');
-                        setReviews([...reviews, review]);
-                    })
-                }
+        swal({
+            text: "Имя:",
+            content: 'input',
+        }).then(fio => {
+            if(fio !== '') {
+                Swal.fire({
+                    text: "Рейтинг:",
+                    input: 'range',
+                    inputAttributes: {
+                        min: 1,
+                        max: 5,
+                        step: 1,
+                    }
+                }).then(rating => {
+                    if(rating.isConfirmed) {
+                        Swal.fire({
+                            text: "Отзыв:",
+                            input: 'textarea',
+                        }).then(content => {
+                            if(content.isConfirmed && content.value !== '') {
+                                store.createReview({
+                                    fio,
+                                    rating: rating.value,
+                                    content: content.value,
+                                    isPublic: true
+                                }).then(review => {
+                                    swal('Отлично!', 'Отзыв создан успешно.', 'success');
+                                    setReviews([...reviews, review]);
+                                })
+                            }
+                        })
+                    }
+                })
             }
         })
     }
@@ -74,19 +83,10 @@ const ReviewsPage = () => {
     return (
         <div style={{padding: '20px 0'}}>
             <Button onClick={handleCreate}>Добавить отзыв</Button>
-            <div className="products">
-                {reviews.map(({_id, name, rating, content}) => {
-                        return (
-                            <div className="review" key={_id}>
-                                <div className="review-header">
-                                    <div className="review-name">{name}</div>
-                                    <div className="review-rating">{rating}</div>
-                                </div>
-                                <div className="review-body">{content}</div>
-                            </div>
-                        )
-                }
-                    )}
+            <div className="reviews">
+                {reviews.map(review => (
+                    <Review key={review.id} review={review} handleDelete={handleDelete} />
+                ))}
             </div>
         </div>
     );
