@@ -35,58 +35,85 @@ const ProductsPage = () => {
                         }).then(image => {
                             if(image.value) {
                                 Swal.fire({
-                                    text: "Выберите размеры:",
+                                    text: "Выберите тип:",
                                     input: 'select',
                                     inputOptions: {
-                                        xxxl: 'xxxl',
-                                        xxl: 'xxl',
-                                        xl: 'xl',
-                                        l: 'l',
-                                        m: 'm',
-                                        s: 's',
+                                        xxxxxl: 'clothes',
+                                        xxxxl: 'shoes',
                                     },
-                                    inputAttributes: {
-                                        'multiple': true,
-                                        'id': 'sizes',
-                                    },
-                                    preConfirm: () => {
-                                        return Array.from(document.querySelectorAll('#sizes option:checked')).map(el => el.value);
-                                    },
-                                    inputPlaceholder: 'Выберите размеры',
-                                }).then(sizes => {
-                                    console.log(sizes.value)
-                                    if(sizes.value.length) {
-                                        Swal.fire({
-                                            text: "Выберите пол:",
-                                            input: 'select',
-                                            inputOptions: {
-                                                male: 'Мужской',
-                                                female: 'Женский',
-                                                unisex: 'Унисекс',
-                                            },
-                                            inputAttributes: {
-                                                'id': 'sex',
-                                                'multiple': true,
-                                            },
-                                            preConfirm: () => {
-                                                return Array.from(document.querySelectorAll('#sex option:checked')).map(el => el.value);
-                                            },
-                                            inputPlaceholder: 'Выберите пол',
-                                        }).then(sex => {
-                                            if(sex.value.length) {
-                                                store.createProduct({
-                                                    articul,
-                                                    price,
-                                                    image: image.value,
-                                                    sizes: sizes.value,
-                                                    sex: sex.value,
-                                                }).then((rs) => {
-                                                    swal('Отлично!', 'Продукт создан успешно.', 'success');
-                                                    setProducts([...products, rs.data]);
-                                                });
-                                            }
-                                        })
+                                    inputPlaceholder: 'Выберите тип',
+                                }).then(type => {
+                                    const type_sizes = {
+                                        clothes: {
+                                            xxxxxl: 'xxxxxl',
+                                            xxxxl: 'xxxxl',
+                                            xxxl: 'xxxl',
+                                            xxl: 'xxl',
+                                            xl: 'xl',
+                                            l: 'l',
+                                            m: 'm',
+                                            s: 's',
+                                            xs: 'xs',
+                                            xxs: 'xxs',
+                                        },
+                                        shoes: {
+                                            34:34,
+                                            35:35,
+                                            36:36,
+                                            37:37,
+                                            38:38,
+                                            39:39,
+                                            40:40,
+                                            41:41,
+                                            42:42,
+                                        }
                                     }
+                                    Swal.fire({
+                                        text: "Выберите размеры:",
+                                        input: 'select',
+                                        inputOptions: type_sizes[type],
+                                        inputAttributes: {
+                                            'multiple': true,
+                                            'id': 'sizes',
+                                        },
+                                        preConfirm: () => {
+                                            return Array.from(document.querySelectorAll('#sizes option:checked')).map(el => el.value);
+                                        },
+                                        inputPlaceholder: 'Выберите размеры',
+                                    }).then(sizes => {
+                                        if(sizes.value.length) {
+                                            Swal.fire({
+                                                text: "Выберите пол:",
+                                                input: 'select',
+                                                inputOptions: {
+                                                    male: 'Мужской',
+                                                    female: 'Женский',
+                                                    unisex: 'Унисекс',
+                                                },
+                                                inputAttributes: {
+                                                    'id': 'sex',
+                                                    'multiple': true,
+                                                },
+                                                preConfirm: () => {
+                                                    return Array.from(document.querySelectorAll('#sex option:checked')).map(el => el.value);
+                                                },
+                                                inputPlaceholder: 'Выберите пол',
+                                            }).then(sex => {
+                                                if(sex.value.length) {
+                                                    store.createProduct({
+                                                        articul,
+                                                        price,
+                                                        image: image.value,
+                                                        sizes: sizes.value,
+                                                        sex: sex.value,
+                                                    }).then((rs) => {
+                                                        swal('Отлично!', 'Продукт создан успешно.', 'success');
+                                                        setProducts([...products, rs.data]);
+                                                    });
+                                                }
+                                            })
+                                        }
+                                    })
                                 })
                             }
                         })
