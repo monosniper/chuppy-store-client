@@ -68,10 +68,14 @@ const ProductsPage = () => {
                                             42:42,
                                         }
                                     }
+                                    console.log(type);
+                                    console.log(type.value);
+                                    console.log(type_sizes[type]);
+                                    console.log(type_sizes[type.value]);
                                     Swal.fire({
                                         text: "Выберите размеры:",
                                         input: 'select',
-                                        inputOptions: type_sizes[type],
+                                        inputOptions: type_sizes[type.value],
                                         inputAttributes: {
                                             'multiple': true,
                                             'id': 'sizes',
