@@ -14,6 +14,7 @@ import {
 } from "../../utils/routes";
 import WhatsApp from '../../assets/images/wasap.png';
 import Telegram from '../../assets/images/teledram.png';
+import Instagram from '../../assets/images/instagram.png';
 import Posts from "../Posts";
 import Reviews from "../Reviews";
 import {Context} from "../../index";
@@ -86,6 +87,9 @@ const HomePage = () => {
                 </a>
                 <a style={{textDecoration: 'none'}} href={process.env.REACT_APP_TELEGRAM_URL}>
                     <button className="social-btn telegram"><img src={Telegram} alt="Telegram"/> Telegram</button>
+                </a>
+                <a style={{textDecoration: 'none'}} href={process.env.REACT_APP_INSTAGRAM_URL}>
+                    <button className="social-btn instagram"><img src={Instagram} alt="Instagram"/> Instagram</button>
                 </a>
             </div>
 
