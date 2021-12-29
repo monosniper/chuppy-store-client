@@ -38,8 +38,8 @@ const ProductsPage = () => {
                                     text: "Выберите тип:",
                                     input: 'select',
                                     inputOptions: {
-                                        xxxxxl: 'clothes',
-                                        xxxxl: 'shoes',
+                                        clothes: 'Одежда',
+                                        shoes: 'Обувь',
                                     },
                                     inputPlaceholder: 'Выберите тип',
                                 }).then(type => {
