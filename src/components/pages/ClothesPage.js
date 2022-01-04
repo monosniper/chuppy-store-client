@@ -19,6 +19,17 @@ const ClothesPage = () => {
         'm',
         's',
     ]
+    const defaultShoesSizes = [
+        '34',
+        '35',
+        '36',
+        '37',
+        '38',
+        '39',
+        '40',
+        '41',
+        '42',
+    ]
     const defaultSex = [
         'male',
         'female',
@@ -52,8 +63,8 @@ const ClothesPage = () => {
     }
 
     useEffect(() => {
-        store.getProducts({sizes, sex}).then(rs => setProducts(rs.data))
-    }, [sizes, sex]);
+        store.getProducts({sizes, shoes_size, sex}).then(rs => setProducts(rs.data))
+    }, [sizes, sex, shoes_size]);
 
     return (
         <>
@@ -65,9 +76,15 @@ const ClothesPage = () => {
             <Container style={{textAlign: 'center'}}>
                 <Logo/>
                 <div className="filter">
-                    <h4>Выберите размер:</h4>
+                    <h4>Выберите размер одежды:</h4>
                     <div className="filter-items">
                         {defaultSizes.map(size => (
+                            <div onClick={() => toggleSize(size)} className={`filter-item ${sizes.indexOf(size) !== -1 ? 'active' : ''}`}>{size.toUpperCase()}</div>
+                        ))}
+                    </div>
+                    <h4>Выберите размер обуви:</h4>
+                    <div className="filter-items">
+                        {defaultShoesSizes.map(size => (
                             <div onClick={() => toggleSize(size)} className={`filter-item ${sizes.indexOf(size) !== -1 ? 'active' : ''}`}>{size.toUpperCase()}</div>
                         ))}
                     </div>
