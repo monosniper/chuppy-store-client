@@ -64,7 +64,7 @@ const ClothesPage = () => {
 
     useEffect(() => {
         store.getProducts({sizes, sex}).then(rs => setProducts(rs.data))
-    }, [sizes, sex, shoes_size]);
+    }, [sizes, sex]);
 
     return (
         <>
