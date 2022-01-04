@@ -63,7 +63,7 @@ const ClothesPage = () => {
     }
 
     useEffect(() => {
-        store.getProducts({sizes, shoes_size, sex}).then(rs => setProducts(rs.data))
+        store.getProducts({sizes, sex}).then(rs => setProducts(rs.data))
     }, [sizes, sex, shoes_size]);
 
     return (
@@ -84,8 +84,8 @@ const ClothesPage = () => {
                     </div>
                     <h4>Выберите размер обуви:</h4>
                     <div className="filter-items">
-                        {defaultShoesSizes.map(size => (
-                            <div onClick={() => toggleSize(size)} className={`filter-item ${sizes.indexOf(size) !== -1 ? 'active' : ''}`}>{size.toUpperCase()}</div>
+                        {defaultShoesSizes.map(shoes_size => (
+                            <div onClick={() => toggleSize(shoes_size)} className={`filter-item ${sizes.indexOf(shoes_size) !== -1 ? 'active' : ''}`}>{shoes_size}</div>
                         ))}
                     </div>
                     <h4>Выберите пол:</h4>
