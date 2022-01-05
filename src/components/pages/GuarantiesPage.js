@@ -36,7 +36,7 @@ const GuarantiesPage = () => {
                 <Button onClick={toggleDocumentVisible}>Развернуть документы ▼</Button>
             </div>
 
-            <iframe style={{display: documentVisible ? 'block' : 'none',width: '100%', height: 800, margin: '40px 0'}} src=<Document /> />
+            <iframe style={{display: documentVisible ? 'block' : 'none',width: '100%', height: 800, margin: '40px 0'}} src={Document} />
         </Container>
     );
 };
