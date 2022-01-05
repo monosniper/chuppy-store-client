@@ -55,7 +55,7 @@ export const publicRoutes = [
         element: <GuarantiesPage/>,
     },
     {
-        path: DeliveryPage,
+        path: DELIVERY_ROUTE,
         element: <DeliveryPage/>,
     },
     {
