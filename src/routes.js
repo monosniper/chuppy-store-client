@@ -2,8 +2,11 @@ import {
     ABOUT_ROUTE,
     ADMIN_ROUTE,
     CHANGE_ABOUT_ROUTE,
-    CHANGE_GUARANTIES_ROUTE, CLOTHES_ROUTE,
+    CHANGE_GUARANTIES_ROUTE,
+    CLOTHES_ROUTE,
+    CHANGE_DELIVERY_ROUTE,
     GUARANTIES_ROUTE,
+    DELIVERY_ROUTE,
     HOME_ROUTE,
     LOGIN_ROUTE,
     ORDER_ROUTE,
@@ -18,11 +21,13 @@ import AdminPage from "./components/pages/AdminPage";
 import AboutPage from "./components/pages/AboutPage";
 import TransactionPage from "./components/pages/TransactionPage";
 import ChangeGuarantiesPage from "./components/pages/ChangeGuarantiesPage";
+import ChangeDeliveryPage from "./components/pages/ChangeDeliveryPage";
 import ChangeAboutPage from "./components/pages/ChangeAboutPage";
 import OrderPage from "./components/pages/OrderPage";
 import TrackPage from "./components/pages/TrackPage";
 import TrackSearchPage from "./components/pages/TrackSearchPage";
 import GuarantiesPage from "./components/pages/GuarantiesPage";
+import DeliveryPage from "./components/pages/DeliveryPage";
 import LoginPage from "./components/pages/LoginPage";
 import ProductsPage from "./components/pages/ProductsPage";
 import PostsPage from "./components/pages/PostsPage";
@@ -48,6 +53,10 @@ export const publicRoutes = [
     {
         path: GUARANTIES_ROUTE,
         element: <GuarantiesPage/>,
+    },
+    {
+        path: DeliveryPage,
+        element: <DeliveryPage/>,
     },
     {
         path: TRACK_SEARCH_ROUTE,
@@ -85,6 +94,10 @@ export const privateRoutes = [
             {
                 path: CHANGE_GUARANTIES_ROUTE,
                 element: <ChangeGuarantiesPage/>,
+            },
+            {
+                path: CHANGE_DELIVERY_ROUTE,
+                element: <ChangeDeliveryPage/>,
             },
             {
                 path: PRODUCTS_ROUTE,

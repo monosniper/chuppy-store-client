@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 import {
     ABOUT_ROUTE,
     GUARANTIES_ROUTE,
+    DELIVERY_ROUTE,
     ORDER_ROUTE,
     TRACK_SEARCH_ROUTE,
     CLOTHES_ROUTE,
@@ -76,6 +77,7 @@ const HomePage = () => {
 
             <Link to={ABOUT_ROUTE}><Button className="fill home-btn">О МАГАЗИНЕ</Button></Link>
             <Link to={GUARANTIES_ROUTE}><Button className="fill home-btn">ГАРАНТИИ</Button></Link>
+            <Link to={DELIVERY_ROUTE}><Button className="fill home-btn">Доставка</Button></Link>
             <Link to={ORDER_ROUTE}><Button className="fill home-btn">АВТОЗАКАЗ</Button></Link>
             <Link to={CLOTHES_ROUTE}><Button className="fill home-btn">Подбор одежды</Button></Link>
             <Button onClick={handleAddReviewClick} className="fill home-btn">Оставить отзыв</Button>

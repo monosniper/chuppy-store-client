@@ -1,7 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {Link, Outlet, useMatch, useResolvedPath} from "react-router-dom";
 import {
-    CHANGE_ABOUT_ROUTE, CHANGE_GUARANTIES_ROUTE, POSTS_ROUTE, PRODUCTS_ROUTE, REVIEWS_ROUTE,
+    CHANGE_ABOUT_ROUTE,
+    CHANGE_GUARANTIES_ROUTE,
+    CHANGE_DELIVERY_ROUTE,
+    POSTS_ROUTE,
+    PRODUCTS_ROUTE,
+    REVIEWS_ROUTE,
 } from "../../utils/routes";
 import Container from "../layout/Container";
 import Button from "../Button";
@@ -19,6 +24,10 @@ const AdminPage = () => {
         {
             route: CHANGE_GUARANTIES_ROUTE,
             title: 'Гарантии'
+        },
+        {
+            route: CHANGE_DELIVERY_ROUTE,
+            title: 'Доставка'
         },
         {
             route: PRODUCTS_ROUTE,
