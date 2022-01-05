@@ -5,6 +5,7 @@ import {Helmet} from "react-helmet";
 import {Link} from "react-router-dom";
 import {HOME_ROUTE} from "../../utils/routes";
 import Button from "../Button";
+import Document from "../../assets/documents/guaranties.pdf";
 
 const GuarantiesPage = () => {
     const {store} = useContext(Context);
@@ -35,7 +36,7 @@ const GuarantiesPage = () => {
                 <Button onClick={toggleDocumentVisible}>Развернуть документы ▼</Button>
             </div>
 
-            <iframe style={{display: documentVisible ? 'block' : 'none',width: '100%', height: 800, margin: '40px 0'}} src='https://kompliroom.com/doc.pdf' />
+            <iframe style={{display: documentVisible ? 'block' : 'none',width: '100%', height: 800, margin: '40px 0'}} src=<Document /> />
         </Container>
     );
 };

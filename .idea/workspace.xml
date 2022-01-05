@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1a48f7d-8684-46fb-81f9-cea35bfbbb16" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/GuarantiesPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/GuarantiesPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +56,8 @@
       <option name="presentableId" value="Default" />
       <updated>1640724333988</updated>
       <workItem from="1640724335448" duration="543000" />
-      <workItem from="1641391295382" duration="1105000" />
+      <workItem from="1641391295382" duration="1397000" />
+      <workItem from="1641404261616" duration="56000" />
     </task>
     <servers />
   </component>
