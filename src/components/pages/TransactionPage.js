@@ -69,7 +69,7 @@ const TransactionPage = () => {
             html: `
                 <h4>Для оплаты заказа обратитесь к нашему менеджеру:</h4>
                 
-                <a href="https://instagram.com/diamond_room.ru">Менеджер</a>
+                <a target="_blank" href="https://instagram.com/diamond_room.ru">Менеджер</a>
             `
         });
     }
