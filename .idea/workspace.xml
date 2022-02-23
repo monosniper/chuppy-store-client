@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c1a48f7d-8684-46fb-81f9-cea35bfbbb16" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/GuarantiesPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/GuarantiesPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/TransactionPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/TransactionPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +47,12 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="npm run watch" />
+      <command value="php artisan serve" />
+    </option>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -57,7 +63,9 @@
       <updated>1640724333988</updated>
       <workItem from="1640724335448" duration="543000" />
       <workItem from="1641391295382" duration="1397000" />
-      <workItem from="1641404261616" duration="927000" />
+      <workItem from="1641404261616" duration="938000" />
+      <workItem from="1641464326376" duration="76000" />
+      <workItem from="1645623667269" duration="9000" />
     </task>
     <servers />
   </component>

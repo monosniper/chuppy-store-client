@@ -12,6 +12,8 @@ import {Context} from "../../index";
 import {PayPalButtons} from "@paypal/react-paypal-js";
 import SuccessPayPage from "./SuccessPayPage";
 import Countdown from "react-countdown";
+import button from "../Button";
+import Swal from "sweetalert2";
 
 const TransactionPage = () => {
 
@@ -61,6 +63,20 @@ const TransactionPage = () => {
             return <span>{minutes}:{seconds}</span>;
         }
     };
+
+    const openPayModal = () => {
+        Swal.fire({
+            html: `
+                <h4>Для оплаты заказа обратитесь к нашему менеджеру:</h4>
+                
+                <a href="https://instagram.com/diamond_room.ru">Менеджер</a>
+            `
+        });
+    }
+
+    const PayButton = () => {
+        return <button className={'pay-btn'} onClick={openPayModal}>Оплатить</button>
+    }
 
     useEffect(() => {
 
@@ -121,7 +137,8 @@ const TransactionPage = () => {
                     </ul>
                 </small>
 
-                {transaction && !timeExpired && <PayPalButtons createOrder={createOrder} onApprove={onApprove} onError={onError} />}
+                {/*{transaction && !timeExpired && <PayPalButtons createOrder={createOrder} onApprove={onApprove} onError={onError} />}*/}
+                {transaction && !timeExpired && <PayButton />}
 
                 <p style={{marginTop: 40,paddingBottom: 30,
                     paddingTop: 20,
