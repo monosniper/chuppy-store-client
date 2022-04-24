@@ -20,3 +20,4 @@ export const CHANGE_DELIVERY_ROUTE = '/admin/delivery';
 export const PRODUCTS_ROUTE = '/admin/products';
 export const POSTS_ROUTE = '/admin/posts';
 export const REVIEWS_ROUTE = '/admin/reviews';
+export const CARDS_ROUTE = '/admin/cards';

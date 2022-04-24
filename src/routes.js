@@ -14,7 +14,7 @@ import {
     PRODUCTS_ROUTE, REVIEWS_ROUTE,
     TRACK_RESULT_ROUTE,
     TRACK_SEARCH_ROUTE,
-    TRANSACTION_ROUTE,
+    TRANSACTION_ROUTE, CARDS_ROUTE,
 } from "./utils/routes";
 import HomePage from "./components/pages/HomePage";
 import AdminPage from "./components/pages/AdminPage";
@@ -33,6 +33,7 @@ import ProductsPage from "./components/pages/ProductsPage";
 import PostsPage from "./components/pages/PostsPage";
 import ReviewsPage from "./components/pages/ReviewsPage";
 import ClothesPage from "./components/pages/ClothesPage";
+import CardsPage from "./components/pages/CardsPage";
 
 export const guestRoutes = [
     {
@@ -110,6 +111,10 @@ export const privateRoutes = [
             {
                 path: REVIEWS_ROUTE,
                 element: <ReviewsPage/>,
+            },
+            {
+                path: CARDS_ROUTE,
+                element: <CardsPage/>,
             },
         ]
     },

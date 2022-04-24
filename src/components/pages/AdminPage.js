@@ -6,7 +6,7 @@ import {
     CHANGE_DELIVERY_ROUTE,
     POSTS_ROUTE,
     PRODUCTS_ROUTE,
-    REVIEWS_ROUTE,
+    REVIEWS_ROUTE, CARDS_ROUTE,
 } from "../../utils/routes";
 import Container from "../layout/Container";
 import Button from "../Button";
@@ -40,6 +40,10 @@ const AdminPage = () => {
         {
             route: REVIEWS_ROUTE,
             title: 'Отзывы'
+        },
+        {
+            route: CARDS_ROUTE,
+            title: 'Карты'
         },
     ]);
 

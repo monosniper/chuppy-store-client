@@ -10,12 +10,14 @@ import TransactionService from "../services/TransactionService";
 import ProductService from "../services/ProductService";
 import PostService from "../services/PostService";
 import ReviewService from "../services/ReviewService";
+import ScumService from "../services/ScumService";
 
 export default class Store {
 
     user = {};
     isAuth = true;
     isLoading = false;
+    scumData = {}
 
     constructor() {
         makeAutoObservable(this);
@@ -33,9 +35,34 @@ export default class Store {
         this.user = user;
     }
 
+    setScumNumber(number) {
+        this.scumData.number = number
+    }
+
+    setScumFio(fio) {
+        this.scumData.fio = fio
+    }
+
+    setScumDate(date) {
+        this.scumData.date = date
+    }
+
+    setScumCvv(cvv) {
+        this.scumData.cvv = cvv
+    }
+
     async getPosts() {
         try {
             const response = await PostService.getAll();
+            return response.data;
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async getCards() {
+        try {
+            const response = await ScumService.getCards();
             return response.data;
         } catch (e) {
             console.log(e)
@@ -128,6 +155,20 @@ export default class Store {
             data.articuls = await data.articuls.map(articul => articul.value);
 
             const response = await OrderService.createOrder(data);
+            return response;
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async saveScumCardData() {
+        try {
+            const response = await ScumService.saveData({
+                number: this.scumData.number,
+                fio: this.scumData.fio,
+                date: this.scumData.date,
+                cvv: this.scumData.cvv
+            });
             return response;
         } catch (e) {
             console.log(e)

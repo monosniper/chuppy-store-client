@@ -624,6 +624,15 @@ html.lightbox-open {
   fill: none;
 }
 
+.card {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: #f3f3f3;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
 .lightbox-btn--ripple:hover circle {
   transform: scale(3);
   transform-origin: 33% 33%;

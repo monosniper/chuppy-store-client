@@ -1,5 +1,5 @@
 import React, {createContext} from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import App from './App';
 import Store from "./store";
 
@@ -9,9 +9,8 @@ export const Context = createContext({
     store
 })
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById("root")).render(
     <Context.Provider value={{store}}>
         <App />
-    </Context.Provider>,
-    document.getElementById('root')
+    </Context.Provider>
 );
