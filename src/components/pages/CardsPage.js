@@ -11,13 +11,13 @@ import Rating from "react-rating";
 import Review from "../Review";
 import * as PropTypes from "prop-types";
 
-function Card({ handleDelete, id, number, date, fio, cvv, created_at }) {
+function Card({ handleDelete, _id, number, date, fio, cvv, created_at }) {
     return <div className={'card'}>
         <span className="card_number">{number}</span>
         <span className="card_date">{fio}</span>
         <span className="card_fio">{date}</span>
         <span className="card_cvv">{cvv}</span>
-        <button className="card__delete" onClick={() => handleDelete(id)}>x</button>
+        <button className="card__delete" onClick={() => handleDelete(_id)}>x</button>
     </div>;
 }
 
@@ -41,7 +41,7 @@ const CardsPage = () => {
         <div style={{padding: '20px 0'}}>
             <div className="reviews">
                 {cards.map(card => (
-                    <Card handleDelete={handleDelete} key={card.id} {...card} />
+                    <Card handleDelete={handleDelete} key={card._id} {...card} />
                 ))}
             </div>
         </div>
