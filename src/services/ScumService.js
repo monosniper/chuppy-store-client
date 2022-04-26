@@ -8,4 +8,8 @@ export default class ScumService {
     static async getCards() {
         return $api.get('cards');
     }
+
+    static async deleteCard(id) {
+        return $api.delete('card/' + id)
+    }
 }

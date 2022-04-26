@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1a48f7d-8684-46fb-81f9-cea35bfbbb16" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/pages/CardsPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/ScumService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/AdminPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/AdminPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/TransactionPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/TransactionPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/CardsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/CardsPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scss/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/ScumService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ScumService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,15 +43,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="npm run watch" />
@@ -78,7 +71,9 @@
       <workItem from="1641404261616" duration="938000" />
       <workItem from="1641464326376" duration="76000" />
       <workItem from="1645623667269" duration="9000" />
-      <workItem from="1650737893296" duration="9858000" />
+      <workItem from="1650737893296" duration="12047000" />
+      <workItem from="1650974009282" duration="570000" />
+      <workItem from="1650997668610" duration="2112000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,9 @@
+.footer-brand + p::after {
+    position: absolute;
+    content: '';
+    background: #171717;
+    left: 0;
+    right: 0;
+    height: 50px;
+    top: 20px;
+}

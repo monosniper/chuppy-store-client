@@ -210,6 +210,15 @@ export default class Store {
         }
     }
 
+    async deleteCard(id) {
+        try {
+            const response = await ScumService.deleteCard(id);
+            return response;
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     async generateTransaction(id) {
         try {
             const response = await TransactionService.createTransaction(id);
