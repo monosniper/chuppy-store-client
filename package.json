@@ -33,6 +33,7 @@
     "rerousel": "^0.1.9",
     "slate-history": "^0.66.0",
     "slate-react": "^0.72.0",
+    "styled-components": "^5.3.6",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^11.4.9",
     "sweetalert2-react-content": "^5.0.0",
@@ -41,6 +42,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "CI=false && react-scripts build",
+    "build_": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
