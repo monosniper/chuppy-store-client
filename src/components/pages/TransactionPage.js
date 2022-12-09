@@ -9,7 +9,6 @@ import WhatsApp from '../../assets/images/wasap.png';
 import Telegram from '../../assets/images/teledram.png';
 import {observer} from "mobx-react-lite";
 import {Context} from "../../index";
-import {PayPalButtons} from "@paypal/react-paypal-js";
 import SuccessPayPage from "./SuccessPayPage";
 import Countdown from "react-countdown";
 import button from "../Button";

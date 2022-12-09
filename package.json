@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@paypal/react-paypal-js": "^7.5.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -13,7 +12,7 @@
     "is-hotkey": "^0.2.0",
     "js-cookie": "^3.0.1",
     "mobx": "^6.5.0",
-    "mobx-react-lite": "^3.3.0",
+    "mobx-react-lite": "^3.4.0",
     "node-sass": "^7.0.1",
     "noty": "^3.2.0-beta-deprecated",
     "react": "^18.0.0",
