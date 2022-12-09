@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1a48f7d-8684-46fb-81f9-cea35bfbbb16" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/pages/CardsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/CardsPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +70,7 @@
       <workItem from="1650737893296" duration="12047000" />
       <workItem from="1650974009282" duration="570000" />
       <workItem from="1650997668610" duration="2236000" />
+      <workItem from="1670610085438" duration="32000" />
     </task>
     <servers />
   </component>
