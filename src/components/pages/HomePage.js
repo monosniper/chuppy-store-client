@@ -95,11 +95,11 @@ const HomePage = () => {
                 </a>
             </div>
 
-            <div style={{textTransform: 'uppercase', textAlign: 'center', paddingBottom: 30, fontSize: 14}}>↓ Скачать приложение ↓</div>
-            <div style={{display: 'flex', justifyContent: 'space-evenly', marginBottom: 40}}>
-                <a target="_blank" download="" href={process.env.REACT_APP_APK_URL}
-                   className="social-btn apk">Для Андроид</a>
-            </div>
+            {/*<div style={{textTransform: 'uppercase', textAlign: 'center', paddingBottom: 30, fontSize: 14}}>↓ Скачать приложение ↓</div>*/}
+            {/*<div style={{display: 'flex', justifyContent: 'space-evenly', marginBottom: 40}}>*/}
+            {/*    <a target="_blank" download="" href={process.env.REACT_APP_APK_URL}*/}
+            {/*       className="social-btn apk">Для Андроид</a>*/}
+            {/*</div>*/}
 
             <Link to={TRACK_SEARCH_ROUTE}><Button className="fill home-btn">ПОЛУЧИТЬ ТРЕК</Button></Link>
 
